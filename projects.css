@@ -1,3 +1,36 @@
+.site-header + main section[id] {
+  scroll-margin-top: 82px;
+}
+
+.price-range {
+  display: block;
+  margin-top: 1rem;
+  font: 900 clamp(2.8rem, 4vw, 4.8rem)/.9 'Barlow Condensed', Impact, sans-serif;
+  letter-spacing: -.02em;
+}
+
+.price-range small {
+  display: inline;
+  font: 600 .68rem 'IBM Plex Mono', monospace;
+  letter-spacing: .05em;
+}
+
+.partner-logo a {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+}
+
+.partner-logo a:hover img,
+.partner-logo a:focus-visible img {
+  transform: scale(1.035);
+}
+
+.partner-logo img {
+  transition: transform .2s ease;
+}
+
 .project-evidence {
   padding: 8vw 3vw 0;
   background: var(--paper);
@@ -100,6 +133,7 @@
 .partner-copy p { max-width: 590px; margin: 2rem 0 0; color: var(--muted); line-height: 1.75; }
 
 @media (max-width: 900px) {
+  .site-header + main section[id] { scroll-margin-top: 68px; }
   .project-evidence { padding: 5rem 5vw 0; }
   .project-heading { grid-template-columns: 1fr; gap: 1rem; }
   .project-grid { grid-template-columns: 1.25fr .75fr; grid-template-rows: 500px 300px; }

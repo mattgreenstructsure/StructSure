@@ -1,0 +1,131 @@
+.project-evidence {
+  padding: 8vw 3vw 0;
+  background: var(--paper);
+  border-top: 2px solid var(--line);
+}
+
+.project-heading {
+  display: grid;
+  grid-template-columns: .75fr 1.55fr 1fr;
+  gap: 3rem;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+
+.project-heading h2,
+.partner h2 {
+  margin: 0;
+  font: 900 clamp(3.5rem, 6.5vw, 7.5rem)/.84 'Barlow Condensed', Impact, sans-serif;
+  letter-spacing: -.025em;
+  text-transform: uppercase;
+}
+
+.project-heading h2 em {
+  color: var(--signal);
+  font-style: normal;
+}
+
+.project-heading > p:last-child {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(260px, .75fr);
+  grid-template-rows: minmax(540px, 68vh) minmax(320px, 42vw);
+  border: 2px solid var(--line);
+  border-bottom: 0;
+}
+
+.project-photo {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--ink);
+}
+
+.project-photo-review { border-right: 2px solid var(--line); }
+.project-photo-crane { grid-column: 1 / -1; border-top: 2px solid var(--line); }
+
+.project-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s ease;
+}
+
+.project-photo-review img { object-position: 52% center; }
+.project-photo-field img { object-position: center 42%; }
+.project-photo-crane img { object-position: center 62%; }
+.project-photo:hover img { transform: scale(1.015); }
+
+.project-photo figcaption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: calc(100% - 1.5rem);
+  padding: .85rem 1rem;
+  background: var(--ink);
+  color: white;
+  font: 500 .68rem 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+}
+
+.project-photo figcaption b { color: #8eb0ff; white-space: nowrap; }
+
+.partner {
+  display: grid;
+  grid-template-columns: .75fr .85fr 1.4fr;
+  min-height: 460px;
+  border-bottom: 2px solid var(--line);
+  background: #fff;
+}
+
+.partner > div { padding: 3vw; }
+.partner-label,
+.partner-logo { border-right: 2px solid var(--line); }
+.partner-label { display: flex; flex-direction: column; justify-content: space-between; }
+.partner-label > span { font: 900 clamp(2.2rem, 4vw, 4.8rem)/.85 'Barlow Condensed', sans-serif; color: var(--signal); }
+.partner-logo { display: grid; place-items: center; background: #f7f7f4; }
+.partner-logo img { display: block; width: min(100%, 360px); height: auto; }
+.partner-copy { display: flex; flex-direction: column; justify-content: center; }
+.partner-copy h2 { font-size: clamp(3.2rem, 5.4vw, 6.4rem); }
+.partner-copy p { max-width: 590px; margin: 2rem 0 0; color: var(--muted); line-height: 1.75; }
+
+@media (max-width: 900px) {
+  .project-evidence { padding: 5rem 5vw 0; }
+  .project-heading { grid-template-columns: 1fr; gap: 1rem; }
+  .project-grid { grid-template-columns: 1.25fr .75fr; grid-template-rows: 500px 300px; }
+  .partner { grid-template-columns: .75fr 1.25fr; }
+  .partner-label { grid-column: 1 / -1; min-height: 150px; border-right: 0; border-bottom: 2px solid var(--line); }
+  .partner-logo { min-height: 330px; }
+}
+
+@media (max-width: 600px) {
+  .project-evidence { padding-top: 4rem; }
+  .project-heading { margin-bottom: 2.5rem; }
+  .project-heading h2 { font-size: 3.8rem; }
+  .project-grid { display: block; }
+  .project-photo { height: 390px; border-right: 0; border-bottom: 2px solid var(--line); }
+  .project-photo-field { height: 520px; }
+  .project-photo-crane { height: 310px; border-top: 0; border-bottom: 0; }
+  .project-photo figcaption { right: 0; max-width: none; align-items: flex-start; flex-direction: column; gap: .35rem; }
+  .partner { display: block; }
+  .partner > div { padding: 2rem 5vw; }
+  .partner-label { min-height: 145px; }
+  .partner-logo { min-height: 300px; border-right: 0; border-bottom: 2px solid var(--line); }
+  .partner-logo img { width: min(82%, 320px); }
+  .partner-copy { min-height: 380px; }
+  .partner-copy h2 { font-size: 3.8rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-photo img { transition: none; }
+}

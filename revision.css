@@ -18,7 +18,7 @@
   text-transform: uppercase;
 }
 
-.revision-story h2 em { color: #8eb0ff; font-style: normal; }
+.revision-story h2 em { color: var(--signal); font-style: normal; }
 .revision-story > p:not(.eyebrow):not(.revision-instruction) { max-width: 650px; margin: 2.5rem 0; color: #c8c9c5; line-height: 1.75; }
 
 .revision-actions {

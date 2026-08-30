@@ -1,0 +1,149 @@
+.revision-demo {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(420px, .95fr);
+  gap: 6vw;
+  align-items: center;
+  min-height: 920px;
+  padding: 7vw 7vw 7vw 5vw;
+  border-bottom: 2px solid var(--line);
+  background: var(--ink);
+  color: white;
+  overflow: hidden;
+}
+
+.revision-story h2 {
+  margin: 0;
+  font: 900 clamp(4rem, 7vw, 8.5rem)/.82 'Barlow Condensed', Impact, sans-serif;
+  letter-spacing: -.03em;
+  text-transform: uppercase;
+}
+
+.revision-story h2 em { color: #8eb0ff; font-style: normal; }
+.revision-story > p:not(.eyebrow):not(.revision-instruction) { max-width: 650px; margin: 2.5rem 0; color: #c8c9c5; line-height: 1.75; }
+
+.revision-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 680px;
+  border: 2px solid #686a66;
+}
+
+.revision-actions button {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .45rem;
+  padding: 1.2rem;
+  border: 0;
+  border-right: 2px solid #686a66;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+}
+
+.revision-actions button:last-child { border-right: 0; }
+.revision-actions button:hover,
+.revision-actions button:focus-visible { background: #262825; outline: none; }
+.revision-actions button.active { background: var(--signal); }
+.revision-actions span { font: 500 .62rem 'IBM Plex Mono', monospace; opacity: .7; }
+.revision-actions b { font: 700 .74rem 'IBM Plex Mono', monospace; }
+.revision-instruction { margin: 1rem 0 0; color: #8e908b; font: 500 .65rem 'IBM Plex Mono', monospace; text-transform: uppercase; }
+
+.phone-comparison { display: grid; place-items: center; }
+
+.phone-shell {
+  position: relative;
+  width: min(100%, 440px);
+  aspect-ratio: 1000 / 2174;
+  border: 12px solid #050605;
+  border-radius: 38px;
+  overflow: hidden;
+  background: #e52228;
+  box-shadow: 22px 22px 0 var(--signal);
+}
+
+.revision-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  user-select: none;
+  pointer-events: none;
+}
+
+.revision-current-wrap { position: absolute; inset: 0; pointer-events: none; }
+.revision-current { clip-path: inset(0 calc(100% - var(--comparison)) 0 0); }
+
+.comparison-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--comparison);
+  width: 3px;
+  transform: translateX(-1px);
+  background: white;
+  pointer-events: none;
+  filter: drop-shadow(0 0 3px #000);
+}
+
+.comparison-line span {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: 3px solid var(--ink);
+  border-radius: 50%;
+  background: white;
+  color: var(--ink);
+  font: 700 1rem 'IBM Plex Mono', monospace;
+}
+
+.comparison-range {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: ew-resize;
+}
+
+.screen-label {
+  position: absolute;
+  bottom: 1rem;
+  padding: .65rem .75rem;
+  color: white;
+  font: 700 .62rem 'IBM Plex Mono', monospace;
+  letter-spacing: .05em;
+  pointer-events: none;
+}
+
+.screen-label-old { right: 1rem; background: #e52228; }
+.screen-label-current { left: 1rem; background: var(--ink); }
+
+@media (max-width: 900px) {
+  .revision-demo { grid-template-columns: 1fr 390px; gap: 4vw; min-height: 820px; padding: 5rem 5vw; }
+  .phone-shell { width: min(100%, 370px); border-width: 9px; border-radius: 30px; box-shadow: 14px 14px 0 var(--signal); }
+}
+
+@media (max-width: 700px) {
+  .revision-demo { grid-template-columns: 1fr; gap: 4rem; padding: 5rem 5vw 6rem; }
+  .revision-story h2 { font-size: 4.4rem; }
+  .revision-actions { grid-template-columns: 1fr; }
+  .revision-actions button { border-right: 0; border-bottom: 2px solid #686a66; }
+  .revision-actions button:last-child { border-bottom: 0; }
+  .phone-shell { width: min(88vw, 410px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .comparison-line { transition: none; }
+}

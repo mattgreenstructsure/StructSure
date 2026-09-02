@@ -38,3 +38,25 @@ if (comparisonRange) {
 revisionButtons.forEach(button => button.addEventListener('click', () => {
   setRevisionComparison(button.dataset.revisionView === 'current' ? 100 : 0);
 }));
+
+const phoneReveal = document.querySelector('.phone-reveal');
+if (phoneReveal) {
+  phoneReveal.addEventListener('click', () => {
+    phoneReveal.querySelector('b').textContent = '(262) 420-8240';
+    phoneReveal.setAttribute('aria-expanded', 'true');
+    phoneReveal.classList.add('revealed');
+    phoneReveal.addEventListener('click', () => { window.location.href = 'tel:+12624208240'; }, { once: true });
+  }, { once: true });
+}
+
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', event => {
+    if (contactForm.querySelector('[name="_honey"]').value) {
+      event.preventDefault();
+      return;
+    }
+    const mailbox = atob('bWF0dEBzdHJ1Y3RzdXJlLmFwcA==');
+    contactForm.action = `https://formsubmit.co/${mailbox}`;
+  });
+}

@@ -1,0 +1,55 @@
+.capability-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 0 0 4rem;
+}
+
+.capability-shot {
+  margin: 0;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  background: var(--paper);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.capability-shot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.11 / 1;
+  object-fit: cover;
+  object-position: top left;
+  background: white;
+}
+
+.capability-shot figcaption {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  min-height: 76px;
+  padding: 1rem 1.2rem;
+  border-top: 2px solid var(--line);
+}
+
+.capability-shot figcaption b {
+  color: var(--signal);
+  font: 600 .66rem 'IBM Plex Mono', monospace;
+  white-space: nowrap;
+}
+
+.capability-shot figcaption span {
+  color: var(--muted);
+  font-size: .84rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 900px) {
+  .capability-gallery { grid-template-columns: 1fr; }
+  .capability-shot { box-shadow: 8px 8px 0 var(--ink); }
+}
+
+@media (max-width: 560px) {
+  .capability-shot figcaption { grid-template-columns: 1fr; gap: .45rem; }
+  .capability-shot img { aspect-ratio: auto; }
+}
